@@ -52,9 +52,9 @@ function eventsHandler(request, response, next) {
   }
 
   async function sendEventsToAll(newFact) {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 10; i++) {
       console.log(`Waiting ${i} seconds...`);
-      await sleep(1000);
+      await sleep(2000);
       clients.forEach(client => client.response.write(`data: ${JSON.stringify(newFact)}\n\n`))
     }
   }
